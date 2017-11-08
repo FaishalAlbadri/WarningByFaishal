@@ -2,7 +2,6 @@ package com.faishalbadri.instagramcoursebyfaishal.ui.login_register.fragment.log
 
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -23,6 +22,7 @@ import com.faishalbadri.instagramcoursebyfaishal.di.LoginRepositoryInject;
 import com.faishalbadri.instagramcoursebyfaishal.ui.home.HomeActivity;
 import com.faishalbadri.instagramcoursebyfaishal.ui.verify_email.VerifyCodeActivity;
 import com.faishalbadri.instagramcoursebyfaishal.util.Server;
+import com.faishalbadri.instagramcoursebyfaishal.util.SessionManager;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class LoginFragment extends Fragment implements LoginContract.loginView {
@@ -36,7 +36,7 @@ public class LoginFragment extends Fragment implements LoginContract.loginView {
   Button buttonLoginFragmentLogin;
   LoginPresenter loginPresenter;
   String user_name, user_password;
-  //  SessionManager sessionManagerLogin;
+  SessionManager sessionManagerLogin;
   ProgressDialog pd;
 
   public LoginFragment() {
@@ -54,7 +54,7 @@ public class LoginFragment extends Fragment implements LoginContract.loginView {
     // Inflate the layout for this fragment
     View view = inflater.inflate(R.layout.fragment_login, container, false);
     ButterKnife.bind(this, view);
-//    sessionManagerLogin = new SessionManager(getActivity());
+    sessionManagerLogin = new SessionManager(getActivity());
     pd = new ProgressDialog(getActivity());
     pd.setMessage("Loading");
     pd.setCancelable(false);
@@ -106,11 +106,14 @@ public class LoginFragment extends Fragment implements LoginContract.loginView {
       String user_email, String user_image, String user_password, String user_verify_code,
       String user_verified_code,
       String user_gender, String user_account_status) {
-
     pd.dismiss();
-//    sessionManagerLogin.createSession(email,id,username,image);
+    sessionManagerLogin
+        .createSessionAll(id_user, user_name, user_nickname, user_following, user_followers,
+            user_bio, user_handphone_number, user_email, user_image, user_password,
+            user_verify_code, user_verified_code, user_gender, user_account_status);
+
     if (user_verified_code == null) {
-      startActivity(new Intent(getActivity(), VerifyCodeActivity.class).putExtra("code",user_verify_code));
+      startActivity(new Intent(getActivity(), VerifyCodeActivity.class));
       getActivity().finish();
     } else if (user_verified_code.equals(user_verify_code)) {
       startActivity(new Intent(getActivity(), HomeActivity.class));

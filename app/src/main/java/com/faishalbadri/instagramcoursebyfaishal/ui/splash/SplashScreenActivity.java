@@ -8,8 +8,11 @@ import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 import com.faishalbadri.instagramcoursebyfaishal.R;
 import com.faishalbadri.instagramcoursebyfaishal.ui.login_register.activity.LoginRegisterActivity;
+import com.faishalbadri.instagramcoursebyfaishal.util.SessionManager;
 
 public class SplashScreenActivity extends AppCompatActivity {
+
+  SessionManager sessionManager;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -18,15 +21,20 @@ public class SplashScreenActivity extends AppCompatActivity {
     getWindow().setFlags(LayoutParams.FLAG_FULLSCREEN,
         LayoutParams.FLAG_FULLSCREEN);
     setContentView(R.layout.activity_splash_screen);
+
+    sessionManager = new SessionManager(SplashScreenActivity.this);
     Handler handler = new Handler();
     handler.postDelayed(new Runnable() {
       @Override
       public void run() {
-        startActivity(new Intent(getApplicationContext(), LoginRegisterActivity.class));
+        sessionManager.checkLogin();
         finish();
       }
-    }, 1000);
+    }, 1500);
+  }
 
+  @Override
+  public void onBackPressed() {
 
   }
 }

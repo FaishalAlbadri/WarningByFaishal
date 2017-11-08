@@ -61,4 +61,9 @@ public class LoginRegisterActivity extends AppCompatActivity {
     viewSegmentRegister.setVisibility(View.VISIBLE);
     viewSegmentLogin.setVisibility(View.INVISIBLE);
   }
+
+  @Override
+  public void onBackPressed() {
+
+  }
 }
