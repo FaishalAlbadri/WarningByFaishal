@@ -1,0 +1,14 @@
+<resources>
+  <string name="app_name">InstagramCourseByFaishal</string>
+  <string name="app_name_small">Instagram</string>
+  <string name="text_username">Username</string>
+  <string name="text_password">Password</string>
+  <string name="text_email">Email</string>
+  <string name="text_login">Login</string>
+  <string name="text_register">Register</string>
+
+  <string name="text_email_with_gmail">Email (You just can use gmail)</string>
+
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
