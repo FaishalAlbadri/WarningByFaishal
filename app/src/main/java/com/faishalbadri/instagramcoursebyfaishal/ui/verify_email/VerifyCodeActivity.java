@@ -43,8 +43,6 @@ public class VerifyCodeActivity extends AppCompatActivity implements
     verifiedcode = user.get(SessionManager.key_user_verified_code);
     id = user.get(SessionManager.key_id_user);
 
-    Toast.makeText(this, id, Toast.LENGTH_SHORT).show();
-
     if (id != null && verifiedcode != null){
       startActivity(new Intent(getApplicationContext(), HomeActivity.class));
       finish();

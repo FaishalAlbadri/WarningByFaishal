@@ -24,6 +24,9 @@ import com.faishalbadri.instagramcoursebyfaishal.ui.verify_email.VerifyCodeActiv
 import com.faishalbadri.instagramcoursebyfaishal.util.Server;
 import com.faishalbadri.instagramcoursebyfaishal.util.SessionManager;
 import com.rengwuxian.materialedittext.MaterialEditText;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class LoginFragment extends Fragment implements LoginContract.loginView {
 
@@ -59,8 +62,7 @@ public class LoginFragment extends Fragment implements LoginContract.loginView {
     pd.setMessage("Loading");
     pd.setCancelable(false);
     pd.setCanceledOnTouchOutside(false);
-    loginPresenter = new LoginPresenter(
-        LoginRepositoryInject.provideToLoginRepository(getActivity()));
+    loginPresenter = new LoginPresenter(LoginRepositoryInject.provideToLoginRepository(getActivity()));
     loginPresenter.onAttachView(this);
     if (VERSION.SDK_INT >= VERSION_CODES.M) {
       buttonLoginFragmentLogin.setForeground(getSelectedItemDrawable());
@@ -94,7 +96,7 @@ public class LoginFragment extends Fragment implements LoginContract.loginView {
     } else {
       pd.show();
       user_name = materialedittextEmailFragmentLogin.getText().toString();
-      user_password = materialedittextPasswordFragmentLogin.getText().toString();
+      user_password = convertPassMd5(materialedittextPasswordFragmentLogin.getText().toString());
       loginPresenter.getDataLogin(user_name, user_password);
     }
   }
@@ -138,6 +140,23 @@ public class LoginFragment extends Fragment implements LoginContract.loginView {
     Drawable selectedItemDrawable = ta.getDrawable(0);
     ta.recycle();
     return selectedItemDrawable;
+  }
+
+  public static String convertPassMd5(String pass) {
+    String password = null;
+    MessageDigest mdEnc;
+    try {
+      mdEnc = MessageDigest.getInstance("MD5");
+      mdEnc.update(pass.getBytes(), 0, pass.length());
+      pass = new BigInteger(1, mdEnc.digest()).toString(16);
+      while (pass.length() < 32) {
+        pass = "0" + pass;
+      }
+      password = pass;
+    } catch (NoSuchAlgorithmException e1) {
+      e1.printStackTrace();
+    }
+    return password;
   }
 
 }

@@ -42,9 +42,6 @@ public class LoginDataRemote implements LoginDataResource {
         Method.POST, String.valueOf(URL), new Listener<String>() {
       @Override
       public void onResponse(String response) {
-        Log.i("response", response);
-        Log.i("user_name",user_name);
-        Log.i("user_password",user_password);
         try {
           if (String.valueOf(new JSONObject(response).getString("msg")).equals("Berhasil")) {
             try {

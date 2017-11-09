@@ -12,13 +12,16 @@ import java.util.HashMap;
 
 public class SessionManager {
 
-  SharedPreferences instaPref, instaPrefCode;
-  SharedPreferences.Editor editorIdUser, editorUserName, editorUserNickName, editorUserFollowing, editorUserFollowers, editorUserBio, editorHandphone, editorEmail, editorImage, editorPassword, editorUserVerifyCode , editorUserVerifiedCode, editorUserGender, editorUserStatus;
+  SharedPreferences instaPref, instaPrefCode, instaPrefPassword, instaPrefFollowing, instaPrefFollowers;
+  SharedPreferences.Editor editorIdUser, editorUserName, editorUserNickName, editorUserFollowing, editorUserFollowers, editorUserBio, editorHandphone, editorEmail, editorImage, editorPassword, editorUserVerifyCode, editorUserVerifiedCode, editorUserGender, editorUserStatus;
   Context context;
   int mode = 0;
 
   private static final String pref_name = "insta_indo_pref";
   private static final String pref_name_code = "code";
+  private static final String pref_name_password = "password";
+  private static final String pref_name_following = "following";
+  private static final String pref_name_followers = "followers";
   private static final String is_login = "islogin";
   public static final String key_id_user = "keyidUser";
   public static final String key_user_name = "keyUserName";
@@ -39,16 +42,19 @@ public class SessionManager {
     this.context = context;
     instaPref = context.getSharedPreferences(pref_name, mode);
     instaPrefCode = context.getSharedPreferences(pref_name_code, mode);
+    instaPrefPassword = context.getSharedPreferences(pref_name_password, mode);
+    instaPrefFollowers = context.getSharedPreferences(pref_name_followers, mode);
+    instaPrefFollowing = context.getSharedPreferences(pref_name_following, mode);
     editorIdUser = instaPref.edit();
     editorUserName = instaPref.edit();
     editorUserNickName = instaPref.edit();
-    editorUserFollowing = instaPref.edit();
-    editorUserFollowers = instaPref.edit();
+    editorUserFollowing = instaPrefFollowing.edit();
+    editorUserFollowers = instaPrefFollowers.edit();
     editorUserBio = instaPref.edit();
     editorHandphone = instaPref.edit();
     editorEmail = instaPref.edit();
     editorImage = instaPref.edit();
-    editorPassword = instaPref.edit();
+    editorPassword = instaPrefPassword.edit();
     editorUserVerifyCode = instaPref.edit();
     editorUserVerifiedCode = instaPrefCode.edit();
     editorUserGender = instaPref.edit();
@@ -57,7 +63,8 @@ public class SessionManager {
 
   public void createSessionAll(String id_user, String user_name, String user_nickname,
       String user_following, String user_followers, String user_bio, String user_handphone_number,
-      String user_email, String user_image, String user_password, String user_verify_code, String user_verified_code,
+      String user_email, String user_image, String user_password, String user_verify_code,
+      String user_verified_code,
       String user_gender, String user_account_status) {
 
     editorIdUser.putBoolean(is_login, true);
@@ -75,6 +82,7 @@ public class SessionManager {
     editorUserVerifiedCode.putString(key_user_verified_code, user_verified_code);
     editorUserGender.putString(key_user_gender, user_gender);
     editorUserStatus.putString(key_user_status, user_account_status);
+
     editorIdUser.commit();
     editorUserName.commit();
     editorUserNickName.commit();
@@ -205,17 +213,18 @@ public class SessionManager {
     user.put(key_id_user, instaPref.getString(key_id_user, null));
     user.put(key_user_name, instaPref.getString(key_user_name, null));
     user.put(key_user_nickname, instaPref.getString(key_user_nickname, null));
-    user.put(key_user_following, instaPref.getString(key_user_following, null));
-    user.put(key_user_followers, instaPref.getString(key_user_followers, null));
+    user.put(key_user_following, instaPrefFollowing.getString(key_user_following, null));
+    user.put(key_user_followers, instaPrefFollowers.getString(key_user_followers, null));
     user.put(key_user_bio, instaPref.getString(key_user_bio, null));
     user.put(key_user_handphone, instaPref.getString(key_user_handphone, null));
     user.put(key_user_email, instaPref.getString(key_user_email, null));
     user.put(key_user_image, instaPref.getString(key_user_image, null));
-    user.put(key_user_password, instaPref.getString(key_user_password, null));
+    user.put(key_user_password, instaPrefPassword.getString(key_user_password, null));
     user.put(key_user_verify_code, instaPref.getString(key_user_verify_code, null));
     user.put(key_user_verified_code, instaPrefCode.getString(key_user_verified_code, null));
     user.put(key_user_gender, instaPref.getString(key_user_gender, null));
     user.put(key_user_status, instaPref.getString(key_user_status, null));
     return user;
   }
+
 }

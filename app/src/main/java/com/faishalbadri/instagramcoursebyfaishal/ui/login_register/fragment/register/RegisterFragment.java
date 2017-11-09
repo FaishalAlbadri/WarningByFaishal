@@ -21,6 +21,9 @@ import com.faishalbadri.instagramcoursebyfaishal.di.RegisterRepositoryInject;
 import com.faishalbadri.instagramcoursebyfaishal.repository.send_email.SendMail;
 import com.faishalbadri.instagramcoursebyfaishal.util.Server;
 import com.rengwuxian.materialedittext.MaterialEditText;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -104,7 +107,7 @@ public class RegisterFragment extends Fragment implements RegisterContract.regis
       pd.show();
       user_name = materialedittextUsernameFragmentRegister.getText().toString();
       user_email = materialedittextEmailFragmentRegister.getText().toString();
-      user_password = materialedittextPasswordFragmentRegister.getText().toString();
+      user_password = convertPassMd5(materialedittextPasswordFragmentRegister.getText().toString());
       DateFormat df = new SimpleDateFormat("HHmmss");
       user_verify_code = df.format(Calendar.getInstance().getTime());
       registerPresenter.getDataRegister(user_name, user_email, user_password, user_verify_code);
@@ -142,6 +145,23 @@ public class RegisterFragment extends Fragment implements RegisterContract.regis
     Drawable selectedItemDrawable = ta.getDrawable(0);
     ta.recycle();
     return selectedItemDrawable;
+  }
+
+  public static String convertPassMd5(String pass) {
+    String password = null;
+    MessageDigest mdEnc;
+    try {
+      mdEnc = MessageDigest.getInstance("MD5");
+      mdEnc.update(pass.getBytes(), 0, pass.length());
+      pass = new BigInteger(1, mdEnc.digest()).toString(16);
+      while (pass.length() < 32) {
+        pass = "0" + pass;
+      }
+      password = pass;
+    } catch (NoSuchAlgorithmException e1) {
+      e1.printStackTrace();
+    }
+    return password;
   }
 
 }
