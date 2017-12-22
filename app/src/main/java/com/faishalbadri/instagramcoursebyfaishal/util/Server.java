@@ -12,8 +12,6 @@ public class Server {
   public static final String EMAIL = "instagramofficialcourse@gmail.com";
   public static final String PASSWORD = "instaindo";
 
-  public static final String PASSWORD_MARK_ZUCKERBERG ="asdasda";
-
   public static boolean isEmpty(MaterialEditText materialEditText) {
 
     if (materialEditText.getText().toString().trim().length() > 0) {
