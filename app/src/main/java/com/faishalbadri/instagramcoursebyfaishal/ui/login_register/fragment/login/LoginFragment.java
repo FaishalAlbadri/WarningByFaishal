@@ -19,7 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.faishalbadri.instagramcoursebyfaishal.R;
 import com.faishalbadri.instagramcoursebyfaishal.di.LoginRepositoryInject;
-import com.faishalbadri.instagramcoursebyfaishal.ui.home.HomeActivity;
+import com.faishalbadri.instagramcoursebyfaishal.ui.home.activity.HomeActivity;
 import com.faishalbadri.instagramcoursebyfaishal.ui.verify_email.VerifyCodeActivity;
 import com.faishalbadri.instagramcoursebyfaishal.util.Server;
 import com.faishalbadri.instagramcoursebyfaishal.util.SessionManager;

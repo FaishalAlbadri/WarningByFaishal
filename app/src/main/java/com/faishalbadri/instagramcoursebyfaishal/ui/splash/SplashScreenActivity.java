@@ -56,7 +56,6 @@ public class SplashScreenActivity extends AppCompatActivity implements LoginCont
       String user_email, String user_image, String user_password, String user_verify_code,
       String user_verified_code, String user_gender, String user_account_status) {
    sessionManager.createSessionAll(id_user, user_name, user_nickname, user_following, user_followers, user_bio, user_handphone_number, user_email, user_image, user_password, user_verify_code, user_verified_code, user_gender, user_account_status);
-    Toast.makeText(this, "Succes", Toast.LENGTH_SHORT).show();
   }
 
   @Override

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import com.faishalbadri.instagramcoursebyfaishal.ui.home.HomeActivity;
+import com.faishalbadri.instagramcoursebyfaishal.ui.home.activity.HomeActivity;
 import com.faishalbadri.instagramcoursebyfaishal.ui.login_register.activity.LoginRegisterActivity;
 import com.faishalbadri.instagramcoursebyfaishal.ui.verify_email.VerifyCodeActivity;
 import java.util.HashMap;

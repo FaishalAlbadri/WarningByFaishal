@@ -13,7 +13,7 @@ import butterknife.ButterKnife;
 import com.alimuzaffar.lib.pin.PinEntryEditText;
 import com.faishalbadri.instagramcoursebyfaishal.R;
 import com.faishalbadri.instagramcoursebyfaishal.di.VerifyCodeRepositoryInject;
-import com.faishalbadri.instagramcoursebyfaishal.ui.home.HomeActivity;
+import com.faishalbadri.instagramcoursebyfaishal.ui.home.activity.HomeActivity;
 import com.faishalbadri.instagramcoursebyfaishal.ui.login_register.activity.LoginRegisterActivity;
 import com.faishalbadri.instagramcoursebyfaishal.util.SessionManager;
 import java.util.HashMap;

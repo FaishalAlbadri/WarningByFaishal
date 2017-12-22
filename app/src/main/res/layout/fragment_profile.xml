@@ -1,0 +1,175 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/color_white_ff"
+  tools:context="com.faishalbadri.instagramcoursebyfaishal.ui.home.fragment.profile.ProfileFragment">
+
+  <include
+    android:id="@+id/toolbar_profile"
+    layout="@layout/toolbar_profile"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+
+
+  <ImageView
+    android:id="@+id/imageview_profile_user"
+    android:layout_width="130dp"
+    android:layout_height="130dp"
+    android:padding="5dp"
+    android:src="@drawable/ic_profile_black"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/toolbar_profile"/>
+
+  <TextView
+    android:id="@+id/textview_caption_posts_value"
+    android:textStyle="bold"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginLeft="10dp"
+    android:padding="5dp"
+    android:fontFamily="sans-serif"
+    android:gravity="center"
+    android:text="20"
+    android:textColor="@android:color/black"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toTopOf="@+id/textview_caption_posts"
+    app:layout_constraintHorizontal_weight="1"
+    app:layout_constraintLeft_toRightOf="@+id/imageview_profile_user"
+    app:layout_constraintRight_toLeftOf="@+id/textview_caption_followers_value"
+    app:layout_constraintTop_toBottomOf="@+id/toolbar_profile"/>
+
+  <TextView
+    android:id="@+id/textview_caption_followers_value"
+    android:textStyle="bold"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:padding="5dp"
+    android:fontFamily="sans-serif"
+    android:gravity="center"
+    android:text="100k"
+    android:textColor="@android:color/black"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toTopOf="@+id/textview_caption_posts"
+    app:layout_constraintHorizontal_weight="1"
+    app:layout_constraintLeft_toRightOf="@+id/textview_caption_posts_value"
+    app:layout_constraintRight_toLeftOf="@+id/textview_caption_following_value"
+    app:layout_constraintTop_toBottomOf="@+id/toolbar_profile"/>
+
+  <TextView
+    android:id="@+id/textview_caption_following_value"
+    android:textStyle="bold"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginRight="10dp"
+    android:padding="5dp"
+    android:fontFamily="sans-serif"
+    android:gravity="center"
+    android:text="0"
+    android:textColor="@android:color/black"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toTopOf="@+id/textview_caption_posts"
+    app:layout_constraintHorizontal_weight="1"
+    app:layout_constraintLeft_toRightOf="@+id/textview_caption_followers_value"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/toolbar_profile"/>
+
+  <TextView
+    android:id="@+id/textview_caption_posts"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginLeft="10dp"
+    android:fontFamily="sans-serif"
+    android:gravity="center"
+    android:text="posts"
+    android:textSize="14sp"
+    app:layout_constraintBottom_toTopOf="@+id/button_edit_profile"
+    app:layout_constraintHorizontal_weight="1"
+    app:layout_constraintLeft_toRightOf="@+id/imageview_profile_user"
+    app:layout_constraintRight_toLeftOf="@+id/textview_caption_followers"/>
+
+  <TextView
+    android:id="@+id/textview_caption_followers"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:fontFamily="sans-serif"
+    android:gravity="center"
+    android:text="followers"
+    android:textSize="14sp"
+    app:layout_constraintBottom_toTopOf="@+id/button_edit_profile"
+    app:layout_constraintHorizontal_weight="1"
+    app:layout_constraintLeft_toRightOf="@+id/textview_caption_posts"
+    app:layout_constraintRight_toLeftOf="@+id/textview_caption_following"/>
+
+  <TextView
+    android:id="@+id/textview_caption_following"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginRight="10dp"
+    android:fontFamily="sans-serif"
+    android:gravity="center"
+    android:text="following"
+    android:textSize="14sp"
+    app:layout_constraintBottom_toTopOf="@+id/button_edit_profile"
+    app:layout_constraintHorizontal_weight="1"
+    app:layout_constraintLeft_toRightOf="@+id/textview_caption_followers"
+    app:layout_constraintRight_toRightOf="parent"/>
+
+  <Button
+    android:id="@+id/button_edit_profile"
+    android:layout_width="0dp"
+    android:layout_height="33dp"
+    android:layout_margin="10dp"
+    android:background="@drawable/custom_broder_layout_grey_rounded"
+    android:fontFamily="sans-serif"
+    android:foreground="?attr/selectableItemBackground"
+    android:text="Edit Profile"
+    android:textAllCaps="false"
+    android:textColor="@android:color/black"
+    app:layout_constraintBottom_toBottomOf="@+id/imageview_profile_user"
+    app:layout_constraintLeft_toRightOf="@+id/imageview_profile_user"
+    app:layout_constraintRight_toRightOf="parent"/>
+
+
+  <TextView
+    android:id="@+id/textview_fragment_profile_username"
+    android:textStyle="bold"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:fontFamily="sans-serif-condensed"
+    android:maxLines="1"
+    android:minLines="1"
+    android:textColor="@android:color/black"
+    android:textSize="13sp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/imageview_profile_user"
+    tools:text="Ahmad Faishal Albadri"/>
+
+  <TextView
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:fontFamily="sans-serif-condensed"
+    android:maxLines="1"
+    android:minLines="1"/>
+
+</android.support.constraint.ConstraintLayout>

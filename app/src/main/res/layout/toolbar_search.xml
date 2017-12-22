@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:id="@+id/cardview_toolbar_search"
+  android:layout_width="match_parent"
+  android:layout_height="48dp">
+
+  <android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+      android:id="@+id/image_toolbar_search"
+      android:layout_width="48dp"
+      android:layout_height="0dp"
+      android:padding="10dp"
+      android:src="@drawable/ic_search_black"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:gravity="center_vertical"
+      android:text="Search"
+      android:textSize="20sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toRightOf="@+id/image_toolbar_search"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
+
+  </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

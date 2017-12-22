@@ -9,8 +9,8 @@ public class Server {
   public final static String BASE_IMG_USER_PROFILE = "http://api.santriprogrammer.com/instaindo/image_user_profile/";
   public final static String BASE_IMG_USER_POST = "http://api.santriprogrammer.com/instaindo/image_user_post/";
 
-  public static final String EMAIL ="instagramofficialcourse@gmail.com";
-  public static final String PASSWORD ="instaindo";
+  public static final String EMAIL = "instagramofficialcourse@gmail.com";
+  public static final String PASSWORD = "instaindo";
 
   public static boolean isEmpty(MaterialEditText materialEditText) {
 

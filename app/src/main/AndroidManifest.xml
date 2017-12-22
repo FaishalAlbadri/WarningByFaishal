@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.faishalbadri.instagramcoursebyfaishal">
 
-  <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
   <application
     android:allowBackup="true"
@@ -16,16 +16,18 @@
       android:name=".ui.splash.SplashScreenActivity"
       android:theme="@style/AppTheme.NoActionBar">
       <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
+        <action android:name="android.intent.action.MAIN"/>
 
-        <category android:name="android.intent.category.LAUNCHER" />
+        <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
     <activity
       android:name=".ui.login_register.activity.LoginRegisterActivity"
-      android:theme="@style/AppTheme.NoActionBar" />
-    <activity android:name=".ui.verify_email.VerifyCodeActivity" />
-    <activity android:name=".ui.home.HomeActivity"></activity>
+      android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:name=".ui.verify_email.VerifyCodeActivity"/>
+    <activity
+      android:name=".ui.home.activity.HomeActivity"
+      android:theme="@style/AppTheme.NoActionBar"/>
   </application>
 
 </manifest>
